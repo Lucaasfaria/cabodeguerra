@@ -817,7 +817,47 @@
        RESPONSIVO
        ============================================================ */
 
-    /* Fotos de depoimento */
+    .btn-cta-principal {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      text-transform: none;
+      padding: 22px 32px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #E53935 0%, #c62828 100%);
+      box-shadow: 0 6px 24px rgba(229, 57, 53, 0.45), 0 2px 8px rgba(0,0,0,0.15);
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-cta-principal::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.4s ease;
+    }
+
+    .btn-cta-principal:hover::after {
+      left: 160%;
+    }
+
+    .btn-cta-principal:hover {
+      background: linear-gradient(135deg, #ef5350 0%, #b71c1c 100%);
+      box-shadow: 0 10px 32px rgba(229, 57, 53, 0.55), 0 4px 12px rgba(0,0,0,0.2);
+      transform: translateY(-2px) scale(1.01);
+    }
+
+    @media (max-width: 480px) {
+      .btn-cta-principal {
+        font-size: 15px;
+        padding: 18px 20px;
+      }
+    }
     .depoimentos-fotos {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1295,8 +1335,8 @@
             </div>
           </div>
 
-          <a href="#" class="btn btn-red btn-full btn-large" style="font-size:17px;letter-spacing:1px;">
-            ✅ QUERO ACESSO AGORA POR R$ 47
+          <a href="#" class="btn btn-red btn-full btn-large btn-cta-principal">
+            🎁 Aproveitar lançamento e ganhar todos os bônus — R$ 47,00
           </a>
           <p style="font-size:12px;color:var(--gray-text);margin-top:12px;">🔒 Pagamento 100% seguro · Garantia de 7 dias · Acesso imediato</p>
         </div>
