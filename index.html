@@ -512,10 +512,16 @@
       width: 160px;
       height: 110px;
       object-fit: cover;
-      border-radius: var(--radius-md);
+      border-radius: 0;
       flex-shrink: 0;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.2s ease;
+      box-shadow: 8px 12px 24px rgba(0,0,0,0.18), 2px 4px 8px rgba(0,0,0,0.10);
+      transform: perspective(600px) rotateY(-6deg) rotateX(2deg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .bonus-item:hover .bonus-mockup {
+      transform: perspective(600px) rotateY(-2deg) rotateX(1deg) scale(1.05);
+      box-shadow: 14px 20px 36px rgba(0,0,0,0.22), 2px 4px 8px rgba(0,0,0,0.10);
     }
 
     .bonus-info {
@@ -1118,7 +1124,7 @@
             </div>
 
             <div class="bonus-item">
-              <img src="./public/imagens/moc2.webp" alt="Bônus 2" class="bonus-mockup">
+              <img src="./public/imagens/moc3.webp" alt="Bônus 2" class="bonus-mockup">
               <div class="bonus-info">
                 <span class="bonus-tag">Bônus 2</span>
                 <p class="bonus-nome">Ficha de Avaliação de Desempenho por Turma</p>
@@ -1131,7 +1137,7 @@
             </div>
 
             <div class="bonus-item">
-              <img src="./public/imagens/moc3.webp" alt="Bônus 3" class="bonus-mockup">
+              <img src="./public/imagens/moc6.webp" alt="Bônus 3" class="bonus-mockup">
               <div class="bonus-info">
                 <span class="bonus-tag">Bônus 3</span>
                 <p class="bonus-nome">Certificado de Campeão</p>
@@ -1144,7 +1150,7 @@
             </div>
 
             <div class="bonus-item">
-              <img src="./public/imagens/moc4.webp" alt="Bônus 4" class="bonus-mockup">
+              <img src="./public/imagens/moc2.webp" alt="Bônus 4" class="bonus-mockup">
               <div class="bonus-info">
                 <span class="bonus-tag">Bônus 4</span>
                 <p class="bonus-nome">Guia de Inclusão no Jogo</p>
@@ -1157,7 +1163,7 @@
             </div>
 
             <div class="bonus-item">
-              <img src="./public/imagens/moc5.webp" alt="Bônus 5" class="bonus-mockup">
+              <img src="./public/imagens/moc4.webp" alt="Bônus 5" class="bonus-mockup">
               <div class="bonus-info">
                 <span class="bonus-tag">Bônus 5</span>
                 <p class="bonus-nome">Cartaz de Regras do Jogo</p>
