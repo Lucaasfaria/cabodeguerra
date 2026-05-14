@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cabo de Guerra Educacional — Transforme qualquer revisão em um jogo</title>
 
-  <!-- Google Fonts: Inter -->
+  <!-- Preconnect para fontes (não bloqueia render) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Carrega fonte de forma não-bloqueante via print trick -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
 
   <style>
     /* ============================================================
@@ -262,7 +264,7 @@
     }
 
     /* ============================================================
-       HERO — MOCKUP VERTICAL (vídeo local)
+       HERO — MOCKUP VERTICAL (YouTube Shorts)
        ============================================================ */
     .mockup-vertical {
       max-width: 340px;
@@ -271,14 +273,18 @@
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       overflow: hidden;
-      line-height: 0;
+      position: relative;
+      padding-bottom: 177.78%; /* 9:16 vertical */
+      height: 0;
     }
 
-    .mockup-vertical video {
+    .mockup-vertical iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: auto;
-      display: block;
-      border-radius: var(--radius-lg);
+      height: 100%;
+      border: 0;
     }
 
     @media (max-width: 480px) {
@@ -1309,14 +1315,14 @@
 
       <!-- Vídeo do jogo -->
       <div class="mockup-vertical">
-        <video
-          src="./jogo1.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-          controls
-        ></video>
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/_L6veRKJqks"
+          title="Cabo de Guerra Educativo"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
       </div>
 
       <!-- Prévia dos bônus -->
@@ -1324,27 +1330,27 @@
         <p class="hero-bonus-label">🎁 Bônus incluídos no lançamento — tudo isso é seu hoje:</p>
         <div class="hero-bonus-grid">
           <div class="hero-bonus-item">
-            <img src="./public/imagens/moc1.webp" alt="Bônus 1">
+            <img src="./public/imagens/moc1.webp" alt="Bônus 1" loading="lazy" width="160" height="120">
             <span>Como Engajar até a Turma mais Difícil</span>
           </div>
           <div class="hero-bonus-item">
-            <img src="./public/imagens/moc3.webp" alt="Bônus 2">
+            <img src="./public/imagens/moc3.webp" alt="Bônus 2" loading="lazy" width="160" height="120">
             <span>Ficha de Avaliação de Desempenho</span>
           </div>
           <div class="hero-bonus-item">
-            <img src="./public/imagens/moc6.webp" alt="Bônus 3">
+            <img src="./public/imagens/moc6.webp" alt="Bônus 3" loading="lazy" width="160" height="120">
             <span>Certificado de Campeão</span>
           </div>
           <div class="hero-bonus-item">
-            <img src="./public/imagens/moc2.webp" alt="Bônus 4">
+            <img src="./public/imagens/moc2.webp" alt="Bônus 4" loading="lazy" width="160" height="120">
             <span>Guia de Inclusão no Jogo</span>
           </div>
           <div class="hero-bonus-item">
-            <img src="./public/imagens/moc4.webp" alt="Bônus 5">
+            <img src="./public/imagens/moc4.webp" alt="Bônus 5" loading="lazy" width="160" height="120">
             <span>Cartaz de Regras do Jogo</span>
           </div>
           <div class="hero-bonus-item">
-            <img src="./public/imagens/moc5.webp" alt="Bônus 6">
+            <img src="./public/imagens/moc5.webp" alt="Bônus 6" loading="lazy" width="160" height="120">
             <span>Atualizações Gratuitas</span>
           </div>
         </div>
@@ -1523,7 +1529,7 @@
             <p class="bonus-section-title">Além de tudo isso, você vai receber 🎁 Bônus exclusivos — só neste lançamento</p>
 
             <div class="bonus-item">
-              <img src="./public/imagens/moc1.webp" alt="Bônus 1" class="bonus-mockup">
+              <img src="./public/imagens/moc1.webp" alt="Bônus 1" class="bonus-mockup" loading="lazy" width="160" height="110">
               <div class="bonus-info">
                 <span class="bonus-tag">Bônus 1</span>
                 <p class="bonus-nome">Como Engajar até a Turma mais Difícil</p>
@@ -1536,7 +1542,7 @@
             </div>
 
             <div class="bonus-item">
-              <img src="./public/imagens/moc3.webp" alt="Bônus 2" class="bonus-mockup">
+              <img src="./public/imagens/moc3.webp" alt="Bônus 2" class="bonus-mockup" loading="lazy" width="160" height="110">
               <div class="bonus-info">
                 <span class="bonus-tag">Bônus 2</span>
                 <p class="bonus-nome">Ficha de Avaliação de Desempenho por Turma</p>
@@ -1549,7 +1555,7 @@
             </div>
 
             <div class="bonus-item">
-              <img src="./public/imagens/moc6.webp" alt="Bônus 3" class="bonus-mockup">
+              <img src="./public/imagens/moc6.webp" alt="Bônus 3" class="bonus-mockup" loading="lazy" width="160" height="110">
               <div class="bonus-info">
                 <span class="bonus-tag">Bônus 3</span>
                 <p class="bonus-nome">Certificado de Campeão</p>
@@ -1562,7 +1568,7 @@
             </div>
 
             <div class="bonus-item">
-              <img src="./public/imagens/moc2.webp" alt="Bônus 4" class="bonus-mockup">
+              <img src="./public/imagens/moc2.webp" alt="Bônus 4" class="bonus-mockup" loading="lazy" width="160" height="110">
               <div class="bonus-info">
                 <span class="bonus-tag">Bônus 4</span>
                 <p class="bonus-nome">Guia de Inclusão no Jogo</p>
@@ -1575,7 +1581,7 @@
             </div>
 
             <div class="bonus-item">
-              <img src="./public/imagens/moc4.webp" alt="Bônus 5" class="bonus-mockup">
+              <img src="./public/imagens/moc4.webp" alt="Bônus 5" class="bonus-mockup" loading="lazy" width="160" height="110">
               <div class="bonus-info">
                 <span class="bonus-tag">Bônus 5</span>
                 <p class="bonus-nome">Cartaz de Regras do Jogo</p>
