@@ -264,7 +264,7 @@
     }
 
     /* ============================================================
-       HERO — MOCKUP VERTICAL (vídeo local)
+       HERO — MOCKUP VERTICAL (YouTube Shorts)
        ============================================================ */
     .mockup-vertical {
       max-width: 340px;
@@ -273,13 +273,18 @@
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       overflow: hidden;
-      line-height: 0;
+      position: relative;
+      padding-bottom: 177.78%; /* 9:16 vertical */
+      height: 0;
     }
 
-    .mockup-vertical video {
+    .mockup-vertical iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
+      border: 0;
       border-radius: var(--radius-lg);
     }
 
@@ -1311,14 +1316,14 @@
 
       <!-- Vídeo do jogo -->
       <div class="mockup-vertical">
-        <video
-          src="./jogo1.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-          controls
-        ></video>
+        <iframe
+          src="https://www.youtube.com/embed/_L6veRKJqks?autoplay=1&mute=1&loop=1&playlist=_L6veRKJqks&controls=1&rel=0"
+          title="Cabo de Guerra Educativo"
+          frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
       </div>
 
       <!-- Prévia dos bônus -->
