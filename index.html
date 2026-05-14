@@ -262,19 +262,29 @@
     }
 
     /* ============================================================
-       HERO — MOCKUP (iframe responsivo)
+       HERO — MOCKUP VERTICAL (vídeo local)
        ============================================================ */
-    .hero .mockup {
-      max-width: 700px;
+    .mockup-vertical {
+      max-width: 340px;
       width: 100%;
       margin: 32px auto 0;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       overflow: hidden;
       line-height: 0;
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-      height: 0;
+    }
+
+    .mockup-vertical video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-lg);
+    }
+
+    @media (max-width: 480px) {
+      .mockup-vertical {
+        max-width: 92vw;
+      }
     }
 
     /* ============================================================
@@ -1298,15 +1308,15 @@
       </a>
 
       <!-- Vídeo do jogo -->
-      <div class="mockup">
-        <iframe
-          width="100%"
-          src="https://www.youtube-nocookie.com/embed/_L6veRKJqks"
-          title="YouTube video player"
-          frameborder="0"
-          allowfullscreen
-          referrerpolicy="strict-origin-when-cross-origin"
-        ></iframe>
+      <div class="mockup-vertical">
+        <video
+          src="./jogo1.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          controls
+        ></video>
       </div>
 
       <!-- Prévia dos bônus -->
