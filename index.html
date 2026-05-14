@@ -55,6 +55,78 @@
     }
 
     /* ============================================================
+       BANNER UPSELL — OFERTA DESBLOQUEADA
+       ============================================================ */
+    .banner-upsell {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: var(--white);
+      padding: 18px 20px;
+      text-align: center;
+      border-bottom: 3px solid #f5a623;
+    }
+
+    .banner-upsell-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .banner-upsell-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .banner-upsell-text {
+      font-size: 15px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .banner-upsell-text strong {
+      color: #f5a623;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .banner-upsell-text em {
+      font-style: normal;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .banner-upsell-destaque {
+      display: inline-block;
+      background: #f5a623;
+      color: #1a1a2e;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      margin-left: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 768px) {
+      .banner-upsell {
+        padding: 14px 16px;
+      }
+      .banner-upsell-text {
+        font-size: 13px;
+      }
+      .banner-upsell-text strong {
+        font-size: 14px;
+      }
+      .banner-upsell-icon {
+        font-size: 22px;
+      }
+    }
+
+    /* ============================================================
        BANNER TOPO — CONTADOR REGRESSIVO
        ============================================================ */
     .banner-topo {
@@ -1035,6 +1107,20 @@
   </style>
 </head>
 <body>
+
+  <!-- ============================================================
+       BANNER UPSELL — OFERTA DESBLOQUEADA
+       ============================================================ -->
+  <div class="banner-upsell">
+    <div class="banner-upsell-inner">
+      <span class="banner-upsell-icon">🔓</span>
+      <div class="banner-upsell-text">
+        <strong>Oferta desbloqueada por comprar as 210 Dinâmicas.</strong>
+        Aproveite o lançamento do jogo <em>"Cabo de Guerra Online Educativo para Professores"</em> —
+        <span class="banner-upsell-destaque">Oferta de lançamento apenas nessa página!</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ============================================================
        BANNER TOPO — CONTADOR REGRESSIVO
