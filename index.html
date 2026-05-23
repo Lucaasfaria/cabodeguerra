@@ -295,7 +295,7 @@
        HERO
        ============================================================ */
     .hero {
-      padding: 60px 24px 80px;
+      padding: 60px 24px 24px;
       text-align: center;
     }
 
@@ -320,6 +320,13 @@
       line-height: 1.6;
     }
 
+    .hero .materias-tag {
+      font-size: 14px;
+      color: #FF6B00;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
     .hero .badges {
       display: flex;
       flex-wrap: wrap;
@@ -337,28 +344,6 @@
       font-size: 13px;
       font-weight: 500;
       white-space: nowrap;
-    }
-
-    .hero-price {
-      margin-bottom: 24px;
-      font-size: 16px;
-      color: var(--dark);
-    }
-
-    .hero-price-de {
-      text-decoration: line-through;
-      color: var(--gray-text);
-    }
-
-    .hero-price-por {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--red);
-    }
-
-    .hero-price-small {
-      font-size: 13px;
-      color: var(--gray-text);
     }
 
     .hero .mockup-video {
@@ -1316,13 +1301,6 @@
 <body>
 
   <!-- ============================================================
-       BANNER TOPO — CONTADOR REGRESSIVO
-       ============================================================ -->
-  <div class="banner-topo" id="banner-topo">
-    🔥 OFERTA POR TEMPO LIMITADO — Expira em <span class="countdown" id="countdown-topo">10:00</span>
-  </div>
-
-  <!-- ============================================================
        HERO
        ============================================================ -->
   <section class="hero">
@@ -1334,19 +1312,17 @@
       </h1>
 
       <p class="subheadline">
-        Sistema interativo que roda direto no navegador. Os alunos jogam pelo celular ou tocam na tela. Você acompanha tudo em tempo real.
+        Sistema interativo que roda direto no navegador. Os alunos jogam pelo celular ou tocam na tela da tv ou data show. Você acompanha tudo em tempo real.
       </p>
+
+      <p class="materias-tag">Matérias disponíveis no jogo: Português, Matemática, Educação Física, Geografia, História, Ciências...</p>
 
       <div class="badges">
         <span class="badge">Acesso vitalício</span>
         <span class="badge">Roda no navegador</span>
         <span class="badge">Sem instalação</span>
         <span class="badge">Pagamento único</span>
-      </div>
-
-      <p class="hero-price">
-        <span class="hero-price-de">De R$ 209,00</span> — Hoje por apenas <span class="hero-price-por">R$ 47,00</span> <span class="hero-price-small">(pagamento único)</span>
-      </p>
+    </div>
 
     </div>
   </section>
@@ -1354,7 +1330,7 @@
   <!-- ============================================================
        SEÇÃO PREÇOS
        ============================================================ -->
-  <section class="section" id="precos" style="background: linear-gradient(180deg, #fff 0%, #fff5f5 100%);">
+  <section class="section" id="precos" style="padding-top:24px;background: linear-gradient(180deg, #fff 0%, #fff5f5 100%);">
     <div class="container">
 
       <p class="section-label" style="display:block;text-align:center;">🚀 Lançamento — Oferta por tempo limitado</p>
@@ -1653,9 +1629,7 @@
       // 25/05/2026 23:59 BRT = 26/05/2026 02:59 UTC
       var DEADLINE = new Date('2026-05-26T02:59:00Z').getTime();
 
-      var elTopo = document.getElementById('countdown-topo');
       var elPrecos = document.getElementById('countdown-precos');
-      var elBanner = document.getElementById('banner-topo');
 
       // Recupera ou define o deadline no localStorage
       var deadline;
@@ -1683,15 +1657,11 @@
         var restante = Math.max(0, Math.floor((deadline - agora) / 1000));
 
         if (restante <= 0) {
-          // Deadline expirado
-          if (elBanner) elBanner.innerHTML = '⚠️ Oferta encerrada — vagas esgotadas.';
-          if (elTopo) elTopo.textContent = '00:00';
           if (elPrecos) elPrecos.textContent = '00:00';
           return;
         }
 
         var texto = formatarTempo(restante);
-        if (elTopo) elTopo.textContent = texto;
         if (elPrecos) elPrecos.textContent = texto;
       }
 
