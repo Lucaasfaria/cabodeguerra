@@ -1407,33 +1407,27 @@
   <script>
     (function () {
       /* ============================================================
-         CONTADOR REGRESSIVO — DEADLINE FIXO COM localStorage
-         Deadline: 25/05/2026 às 23h59 (horário de Brasília)
+         CONTADOR REGRESSIVO — 30 MINUTOS, REINÍCIO AUTOMÁTICO
          ============================================================ */
-      var STORAGE_KEY = 'cabo-de-guerra-deadline';
-      // 25/05/2026 23:59 BRT = 26/05/2026 02:59 UTC
-      var DEADLINE = new Date('2026-05-26T02:59:00Z').getTime();
+      var DURACAO_MINUTOS = 30;
+      var DURACAO_MS = DURACAO_MINUTOS * 60 * 1000;
 
       var elPrecos = document.getElementById('countdown-precos');
 
-      // Recupera ou define o deadline no localStorage
-      var deadline;
-      var stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        deadline = parseInt(stored, 10);
-      } else {
-        deadline = DEADLINE;
+      // Guarda o deadline atual no localStorage
+      var STORAGE_KEY = 'cabo-de-guerra-deadline';
+      var deadline = parseInt(localStorage.getItem(STORAGE_KEY), 10) || 0;
+
+      // Se expirou ou é a primeira vez, define novo deadline
+      if (!deadline || Date.now() >= deadline) {
+        deadline = Date.now() + DURACAO_MS;
         localStorage.setItem(STORAGE_KEY, deadline);
       }
 
       function formatarTempo(totalSegundos) {
         if (totalSegundos <= 0) return '00:00';
-        var horas = Math.floor(totalSegundos / 3600);
-        var min = Math.floor((totalSegundos % 3600) / 60);
+        var min = Math.floor(totalSegundos / 60);
         var seg = totalSegundos % 60;
-        if (horas > 0) {
-          return String(horas).padStart(2, '0') + ':' + String(min).padStart(2, '0') + ':' + String(seg).padStart(2, '0');
-        }
         return String(min).padStart(2, '0') + ':' + String(seg).padStart(2, '0');
       }
 
@@ -1442,12 +1436,13 @@
         var restante = Math.max(0, Math.floor((deadline - agora) / 1000));
 
         if (restante <= 0) {
-          if (elPrecos) elPrecos.textContent = '00:00';
-          return;
+          // Reinicia automaticamente com mais 30 minutos
+          deadline = agora + DURACAO_MS;
+          localStorage.setItem(STORAGE_KEY, deadline);
+          restante = Math.floor(DURACAO_MS / 1000);
         }
 
-        var texto = formatarTempo(restante);
-        if (elPrecos) elPrecos.textContent = texto;
+        if (elPrecos) elPrecos.textContent = formatarTempo(restante);
       }
 
       // Inicializa
