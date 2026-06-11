@@ -245,6 +245,7 @@
       margin: 0 auto 28px;
       width: 100%;
       max-width: 315px;
+      position: relative;
     }
     
     .hero .mini-vsl iframe {
@@ -254,6 +255,18 @@
       display: block;
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-lg);
+    }
+
+    .vsl-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      cursor: pointer;
+      border-radius: var(--radius-md);
+      background: transparent;
     }
 
     .hero .subheadline {
@@ -1116,7 +1129,8 @@
       </h1>
 
       <div class="mini-vsl">
-        <iframe src="https://www.youtube.com/embed/3Cn1IpYwCDA" title="Cabo de Guerra Educativo VSL" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe id="vsl-iframe" src="https://www.youtube.com/embed/3Cn1IpYwCDA?enablejsapi=1&controls=0&rel=0&iv_load_policy=3" title="Cabo de Guerra Educativo VSL" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div id="vsl-overlay" class="vsl-overlay"></div>
       </div>
 
       <p class="subheadline">
@@ -1509,6 +1523,45 @@
          ============================================================ */
       // O comportamento já é tratado pelo CSS (scroll-behavior: smooth)
       // e pelos href="#precos" nos botões. Nenhum código extra necessário.
+
+      /* ============================================================
+         BLOQUEAR CLIQUES EXTERNOS NA VSL (YOUTUBE PLAYER API)
+         ============================================================ */
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+      window.onYouTubeIframeAPIReady = function () {
+        player = new YT.Player('vsl-iframe', {
+          events: {
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      };
+
+      var overlay = document.getElementById('vsl-overlay');
+
+      function onPlayerStateChange(event) {
+        if (event.data === 1) { // 1 = YT.PlayerState.PLAYING
+          overlay.classList.add('playing');
+        } else {
+          overlay.classList.remove('playing');
+        }
+      }
+
+      if (overlay) {
+        overlay.addEventListener('click', function () {
+          if (!player || typeof player.getPlayerState !== 'function') return;
+          var state = player.getPlayerState();
+          if (state === 1) { // Playing
+            player.pauseVideo();
+          } else {
+            player.playVideo();
+          }
+        });
+      }
     })();
   </script>
 
