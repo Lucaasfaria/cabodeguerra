@@ -328,14 +328,14 @@
     }
 
     .btn-red {
-      background: var(--red);
+      background: #16a34a;
       color: var(--white);
-      box-shadow: 0 4px 14px rgba(229, 57, 53, 0.35);
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
     }
 
     .btn-red:hover {
-      background: var(--red-dark);
-      box-shadow: 0 6px 20px rgba(229, 57, 53, 0.45);
+      background: #15803d;
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.45);
       transform: translateY(-1px);
     }
 
@@ -503,7 +503,7 @@
     }
 
     .bonus-mockup {
-      width: 160px;
+      width: 130px;
       height: auto;
       border-radius: 0;
       flex-shrink: 0;
@@ -523,7 +523,7 @@
 
     .bonus-tag {
       display: inline-block;
-      background: var(--red);
+      background: #16a34a;
       color: var(--white);
       font-size: 10px;
       font-weight: 700;
@@ -647,7 +647,7 @@
         gap: 16px;
       }
       .bonus-mockup {
-        width: 100%;
+        width: 130px;
         height: auto;
       }
       .bonus-valor {
@@ -661,9 +661,29 @@
        ============================================================ */
     .depoimentos-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-top: 40px;
+    }
+
+    .depo-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .depo-foto-complemento {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-border);
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    .depo-foto-complemento:hover {
+      transform: scale(1.02);
     }
 
     .depo-card {
@@ -865,8 +885,8 @@
       text-transform: none;
       padding: 22px 32px;
       border-radius: 12px;
-      background: linear-gradient(135deg, #E53935 0%, #c62828 100%);
-      box-shadow: 0 6px 24px rgba(229, 57, 53, 0.45), 0 2px 8px rgba(0,0,0,0.15);
+      background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+      box-shadow: 0 6px 24px rgba(22, 163, 74, 0.45), 0 2px 8px rgba(0,0,0,0.15);
       transition: all 0.2s ease;
       position: relative;
       overflow: hidden;
@@ -887,9 +907,77 @@
     }
 
     .btn-cta-principal:hover {
-      background: linear-gradient(135deg, #ef5350 0%, #b71c1c 100%);
-      box-shadow: 0 10px 32px rgba(229, 57, 53, 0.55), 0 4px 12px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, #4ade80 0%, #166534 100%);
+      box-shadow: 0 10px 32px rgba(22, 163, 74, 0.55), 0 4px 12px rgba(0,0,0,0.2);
       transform: translateY(-2px) scale(1.01);
+    }
+
+    /* Floating Mobile CTA */
+    .mobile-floating-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border-top: 1.5px solid var(--gray-border);
+      padding: 10px 20px;
+      z-index: 999;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+    }
+
+    .floating-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 500px;
+      margin: 0 auto;
+      gap: 16px;
+    }
+
+    .floating-cta-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .floating-cta-text .price-now {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1.1;
+    }
+
+    .floating-cta-text .price-desc {
+      font-size: 11px;
+      color: var(--gray-text);
+      font-weight: 500;
+    }
+
+    .btn-floating-cta {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      background: #16a34a;
+      color: var(--white);
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(22, 163, 74, 0.3);
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-floating-cta.visible {
+        display: block;
+      }
+      body {
+        padding-bottom: 70px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1048,7 +1136,7 @@
       }
 
       .bonus-mockup {
-        width: 100%;
+        width: 130px;
         height: auto;
         transform: none;
       }
@@ -1128,14 +1216,18 @@
         <span style="display: block; font-size: clamp(16px, 4.5vw, 22px); color: #2e7d32; font-weight: 800; margin-top: 16px; letter-spacing: -0.2px;">🏆 NOVIDADE: O Modo Copa do Mundo chegou para você usar! ⚽</span>
       </h1>
 
-      <div class="mini-vsl">
-        <iframe id="vsl-iframe" src="https://www.youtube.com/embed/PbBRsQxQJ4Y?enablejsapi=1&controls=0&rel=0&iv_load_policy=3" title="Cabo de Guerra Educativo VSL" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <div id="vsl-overlay" class="vsl-overlay"></div>
-      </div>
-
       <p class="subheadline">
         Jogo interativo que roda direto no navegador. Os alunos jogam pelo celular ou tocam na tela da tv ou data show. Você acompanha tudo em tempo real.
       </p>
+
+      <div style="margin: 24px auto 16px; max-width: 480px;">
+        <a href="#precos" class="btn btn-red btn-cta-principal btn-full">Quero Acesso Imediato — R$ 47</a>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; color: var(--gray-text); margin-bottom: 28px;">
+        <span style="color: #FFB300; font-weight: bold; letter-spacing: 1.5px;">⭐⭐⭐⭐⭐</span>
+        <span><strong>4.9/5</strong> (560 professores satisfeitos)</span>
+      </div>
 
       <p class="materias-tag">Matérias disponíveis no jogo: Português, Matemática, Inglês, Educação Física, Geografia, História, Ciências...</p>
 
@@ -1144,7 +1236,7 @@
         <span class="badge">Roda no navegador</span>
         <span class="badge">Sem instalação</span>
         <span class="badge">Pagamento único</span>
-    </div>
+      </div>
 
     </div>
   </section>
@@ -1302,14 +1394,86 @@
   <!-- ============================================================
        SEÇÃO DEPOIMENTOS
        ============================================================ -->
-  <section class="section section-gray section-lazy">
+  <section class="section section-gray section-lazy" id="depoimentos">
     <div class="container">
       <h2 class="section-title" style="text-align:center;">O que professores estão dizendo</h2>
 
-      <div class="depoimentos-fotos">
-        <img src="./public/imagens/fed1.png" alt="Depoimento 1" class="depo-foto" loading="lazy" width="400" height="400">
-        <img src="./public/imagens/fed2.png" alt="Depoimento 2" class="depo-foto" loading="lazy" width="400" height="400">
-        <img src="./public/imagens/fed3.png" alt="Depoimento 3" class="depo-foto" loading="lazy" width="400" height="400">
+      <div class="depoimentos-grid">
+        <!-- Depoimento 1 -->
+        <div class="depo-wrapper">
+          <div class="depo-card">
+            <div class="depo-header">
+              <div class="depo-avatar" style="background-color: #E53935;">J</div>
+              <div>
+                <h4 class="depo-nome">Juliana</h4>
+                <p class="depo-cargo">Professora · Ensino Fundamental</p>
+              </div>
+            </div>
+            <div class="depo-texto">
+              "Foi demais! Meus alunos não param de pedir para jogar de novo! Apliquei na revisão de português (interpretação de texto) e foi um sucesso. O que mais gostei foi que o jogo é super fácil de usar e roda direto no navegador. Nem precisei instalar nada nos celulares dos alunos. As perguntas aparecem rápido, o placar deixa tudo mais emocionante e o melhor: aprendem brincando!"
+            </div>
+          </div>
+          <div class="depo-imagem-container">
+            <img src="./public/imagens/fed1.png" alt="Conversa de WhatsApp com Juliana" class="depo-foto-complemento" loading="lazy" width="400" height="400">
+          </div>
+        </div>
+
+        <!-- Depoimento 2 -->
+        <div class="depo-wrapper">
+          <div class="depo-card">
+            <div class="depo-header">
+              <div class="depo-avatar" style="background-color: #2E7D32;">R</div>
+              <div>
+                <h4 class="depo-nome">Rafael</h4>
+                <p class="depo-cargo">Professor · Ensino Fundamental e Médio</p>
+              </div>
+            </div>
+            <div class="depo-texto">
+              "A turma simplesmente amou o jogo! Usei na revisão de matemática e fez toda a diferença. Eles ficaram super envolvidos, todos participaram e até os mais tímidos entraram no jogo. O tempo de resposta das perguntas é ótimo e o placar deixa tudo mais empolgante. No final, fizemos uma reflexão sobre os erros e acertos. Aprenderam muito brincando!"
+            </div>
+          </div>
+          <div class="depo-imagem-container">
+            <img src="./public/imagens/fed2.png" alt="Conversa de WhatsApp com Rafael" class="depo-foto-complemento" loading="lazy" width="400" height="400">
+          </div>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div class="depo-wrapper">
+          <div class="depo-card">
+            <div class="depo-header">
+              <div class="depo-avatar" style="background-color: #1565C0;">H</div>
+              <div>
+                <h4 class="depo-nome">Henrique</h4>
+                <p class="depo-cargo">Professor · Ciências e História (7º ano)</p>
+              </div>
+            </div>
+            <div class="depo-texto">
+              "Foi excelente! A galera amou demais! Usei na revisão de ciências e história com minhas turmas do 7º ano. Eles ficaram super empolgados e pediram até para jogar de novo. O jogo é muito dinâmico, as perguntas são boas e dá para adaptar com qualquer conteúdo. E os bônus são sensacionais! Já imprimi o cartaz de regras e usei a ficha de avaliação. Me ajudou demais."
+            </div>
+          </div>
+          <div class="depo-imagem-container">
+            <img src="./public/imagens/fed3.png" alt="Conversa de WhatsApp com Henrique" class="depo-foto-complemento" loading="lazy" width="400" height="400">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO VSL (VÍDEO EM AÇÃO)
+       ============================================================ -->
+  <section class="section section-lazy" id="vsl-section" style="background: var(--white); text-align: center; padding-top: 50px; padding-bottom: 50px;">
+    <div class="container">
+      <h2 class="section-title">Veja como funciona na prática</h2>
+      <p class="section-subtitle" style="margin: 0 auto 32px;">Assista à demonstração rápida do jogo para ver a dinâmica do Cabo de Guerra Educativo.</p>
+      
+      <div class="mini-vsl" style="margin: 0 auto 28px;">
+        <iframe id="vsl-iframe" src="https://www.youtube.com/embed/PbBRsQxQJ4Y?enablejsapi=1&controls=0&rel=0&iv_load_policy=3" title="Cabo de Guerra Educativo VSL" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div id="vsl-overlay" class="vsl-overlay"></div>
+      </div>
+      
+      <div style="margin-top: 24px;">
+        <a href="#precos" class="btn btn-red btn-large btn-cta-principal">Garantir Meu Acesso com Bônus</a>
       </div>
     </div>
   </section>
@@ -1429,6 +1593,17 @@
     </div>
   </section>
   </main>
+
+  <!-- CTA Flutuante Mobile -->
+  <div class="mobile-floating-cta" id="mobile-floating-cta">
+    <div class="floating-cta-inner">
+      <div class="floating-cta-text">
+        <span class="price-now">R$ 47,00</span>
+        <span class="price-desc">Acesso Vitalício + Bônus</span>
+      </div>
+      <a href="#precos" class="btn-floating-cta">Comprar Agora</a>
+    </div>
+  </div>
 
   <!-- ============================================================
        RODAPÉ
@@ -1559,6 +1734,23 @@
             player.pauseVideo();
           } else {
             player.playVideo();
+          }
+        });
+      }
+
+      /* ============================================================
+         CTA FLUTUANTE MOBILE (EXIBIÇÃO COM SCROLL)
+         ============================================================ */
+      var floatingCta = document.getElementById('mobile-floating-cta');
+      var heroSection = document.querySelector('.hero');
+      
+      if (floatingCta && heroSection) {
+        window.addEventListener('scroll', function() {
+          var heroHeight = heroSection.offsetHeight;
+          if (window.scrollY > heroHeight) {
+            floatingCta.classList.add('visible');
+          } else {
+            floatingCta.classList.remove('visible');
           }
         });
       }
