@@ -358,16 +358,19 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       display: block;
     }
 
-    .vsl-overlay {
+    .vsl-top-blocker {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 85px;
       z-index: 10;
-      cursor: pointer;
-      border-radius: var(--radius-md);
       background: transparent;
+      display: none;
+    }
+
+    .vsl-lite.active .vsl-top-blocker {
+      display: block;
     }
 
     .hero .subheadline {
@@ -1325,14 +1328,15 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       <!-- VSL Video -->
       <div class="mini-vsl" style="margin: 0 auto 28px;">
         <div class="vsl-lite" id="vsl-lite">
+          <div class="vsl-top-blocker"></div>
           <img
             class="vsl-thumb"
-            src="https://i.ytimg.com/vi/PbBRsQxQJ4Y/maxresdefault.jpg"
+            src="https://i.ytimg.com/vi/5Jb7V75o3Wk/maxresdefault.jpg"
             alt="Assista ao vídeo do Cabo de Guerra Educativo"
             width="315"
             height="560"
             loading="eager"
-            onerror="this.src='https://i.ytimg.com/vi/PbBRsQxQJ4Y/hqdefault.jpg'"
+            onerror="this.src='https://i.ytimg.com/vi/5Jb7V75o3Wk/hqdefault.jpg'"
           >
           <div class="vsl-play-btn">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
@@ -1829,7 +1833,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       if (vslLite) {
         vslLite.addEventListener('click', function () {
           var iframe = document.createElement('iframe');
-          iframe.src = 'https://www.youtube.com/embed/PbBRsQxQJ4Y?autoplay=1&rel=0&iv_load_policy=3';
+          iframe.src = 'https://www.youtube.com/embed/5Jb7V75o3Wk?autoplay=1&rel=0&iv_load_policy=3';
           iframe.title = 'Cabo de Guerra Educativo VSL';
           iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
           iframe.allowFullscreen = true;
