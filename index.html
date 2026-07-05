@@ -1318,6 +1318,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       <h1 class="headline">
         Cabo de Guerra Educativo<br>O jogo interativo que faz até <span style="color:#FF6B00;">a turma mais difícil</span> querer participar.
         <span style="display: block; font-size: clamp(16px, 4.5vw, 22px); color: #2e7d32; font-weight: 800; margin-top: 16px; letter-spacing: -0.2px;">🏆 NOVIDADE: O Modo Copa do Mundo chegou para você usar! ⚽</span>
+        <span style="display: block; font-size: clamp(15px, 4vw, 20px); color: #2563eb; font-weight: 800; margin-top: 8px; letter-spacing: -0.2px;">✨ NOVO: Modo ENEM 2026 com mais de 500 perguntas exclusivas de todas as matérias! 📚</span>
       </h1>
 
       <!-- Informação de compatibilidade e uso de dispositivos -->
@@ -1353,7 +1354,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         <span><strong>4.9/5</strong> (560 professores satisfeitos)</span>
       </div>
 
-      <p class="materias-tag">Matérias disponíveis no jogo: Português, Matemática, Inglês, Educação Física, Geografia, História, Ciências...</p>
+      <p class="materias-tag">Matérias disponíveis no jogo: Português, Matemática, Inglês, Espanhol, Sociologia, Educação Física, Geografia, História, Ciências...</p>
 
       <div class="badges">
         <span class="badge">Acesso vitalício</span>
@@ -1389,7 +1390,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
           <ul class="plano-itens">
             <li>🎮 Jogo completo de Cabo de Guerra Educativo</li>
-            <li>📚 Mais de 2.500 perguntas prontas alinhadas à BNCC</li>
+            <li>📚 Mais de 3.500 perguntas prontas alinhadas à BNCC (Incluindo os novos modos Copa e ENEM 2026)</li>
             <li>✏️ Editor de perguntas personalizadas (crie, edite e organize em pastas)</li>
             <li>🖥️ Funciona em notebook, computador, celular (via QR code), TVs, projetores e telas no geral</li>
             <li>🔄 Atualizações gratuitas de novas matérias</li>
@@ -1643,7 +1644,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Matemática, Português, Inglês, Ciências, História e Geografia — do Ensino Fundamental 1 ao Ensino Médio.
+              Matemática, Português, Inglês, Espanhol, Sociologia, Ciências, História e Geografia — do Ensino Fundamental 1 ao Ensino Médio.
             </div>
           </div>
         </div>
@@ -1831,7 +1832,10 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
          ============================================================ */
       var vslLite = document.getElementById('vsl-lite');
       if (vslLite) {
-        vslLite.addEventListener('click', function () {
+        vslLite.addEventListener('click', function (e) {
+          if (vslLite.classList.contains('active')) {
+            return;
+          }
           var iframe = document.createElement('iframe');
           iframe.src = 'https://www.youtube.com/embed/5Jb7V75o3Wk?autoplay=1&rel=0&iv_load_policy=3';
           iframe.title = 'Cabo de Guerra Educativo VSL';
@@ -1840,6 +1844,14 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
           vslLite.appendChild(iframe);
           vslLite.classList.add('active');
         });
+
+        var topBlocker = vslLite.querySelector('.vsl-top-blocker');
+        if (topBlocker) {
+          topBlocker.addEventListener('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+          });
+        }
       }
 
       /* ============================================================
