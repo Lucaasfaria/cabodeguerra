@@ -10,6 +10,7 @@
   <!-- Preconnect para domínios externos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
   <link rel="preconnect" href="https://cdn.utmify.com.br">
   <link rel="preconnect" href="https://analytics.tiktok.com">
   <link rel="preconnect" href="https://www.clarity.ms">
@@ -381,30 +382,65 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       line-height: 1.6;
     }
 
-    .hero .materias-tag {
-      font-size: 14px;
-      color: #FF6B00;
-      font-weight: 600;
-      margin-bottom: 16px;
+    .materias-box {
+      background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+      border: 1.5px solid #FFB74D;
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      max-width: 680px;
+      margin: 0 auto 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .materias-titulo {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #E65100;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: 0.2px;
+    }
+
+    .materias-lista {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .materia-chip {
+      display: inline-block;
+      background: #fff;
+      color: #BF360C;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #FFCC80;
+      white-space: nowrap;
     }
 
     .hero .badges {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 32px;
     }
 
     .hero .badge {
-      display: inline-block;
-      background: var(--gray-medium);
-      color: var(--dark);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      color: #1B5E20;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
       white-space: nowrap;
+      border: 1.5px solid #A5D6A7;
+      box-shadow: var(--shadow-sm);
     }
 
     .hero .mockup-video {
@@ -763,19 +799,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     /* ============================================================
        SEÇÃO DEPOIMENTOS (WhatsApp Style)
        ============================================================ */
-    .depoimentos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .depo-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
     .depo-foto-complemento {
       width: 100%;
       height: auto;
@@ -790,64 +813,195 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       transform: scale(1.02);
     }
 
-    .depo-card {
-      background: var(--white);
-      border-radius: var(--radius-md);
-      padding: 20px 24px;
-      box-shadow: var(--shadow-sm);
-      position: relative;
+    /* ============================================================
+       WHATSAPP MOCKUP — PRINTS REALISTAS DE FEEDBACK
+       ============================================================ */
+    .wa-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+      align-items: start;
     }
 
-    .depo-card::before {
-      content: '';
-      position: absolute;
-      top: 16px;
-      left: -8px;
-      width: 16px;
-      height: 16px;
-      background: var(--white);
-      border-radius: 4px;
-      transform: rotate(45deg);
-      box-shadow: -2px 2px 4px rgba(0,0,0,0.04);
+    .wa-print {
+      background: #ECE5DD;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.16), 0 2px 6px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+      max-width: 320px;
+      margin: 0 auto;
+      font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
     }
 
-    .depo-card .depo-header {
+    .wa-header {
+      background: #075E54;
+      color: #fff;
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 12px;
+      padding: 10px 12px;
+      flex-shrink: 0;
     }
 
-    .depo-card .depo-avatar {
-      width: 40px;
-      height: 40px;
+    .wa-header-back {
+      font-size: 20px;
+      line-height: 1;
+      opacity: 0.95;
+    }
+
+    .wa-header-avatar {
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      background: var(--green);
-      color: var(--white);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 14px;
+      color: #fff;
       flex-shrink: 0;
     }
 
-    .depo-card .depo-nome {
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--dark);
+    .wa-header-info {
+      flex: 1;
+      min-width: 0;
     }
 
-    .depo-card .depo-cargo {
+    .wa-header-name {
+      font-size: 15px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .wa-header-status {
       font-size: 12px;
-      color: var(--gray-text);
+      color: rgba(255,255,255,0.75);
     }
 
-    .depo-card .depo-texto {
-      font-size: 14px;
-      color: var(--dark);
-      line-height: 1.6;
-      font-style: italic;
+    .wa-header-icons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      opacity: 0.95;
+      flex-shrink: 0;
+    }
+
+    .wa-body {
+      position: relative;
+      padding: 12px 10px 18px;
+      background-color: #ECE5DD;
+      background-image: radial-gradient(circle at 10px 10px, rgba(0,0,0,0.03) 1.3px, transparent 0);
+      background-size: 24px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wa-body::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 26px;
+      background: linear-gradient(180deg, rgba(236,229,221,0) 0%, rgba(236,229,221,0.9) 100%);
+      pointer-events: none;
+    }
+
+    .wa-date-chip {
+      align-self: center;
+      background: #E1F2FB;
+      color: #54656F;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+    }
+
+    .wa-msg {
+      display: flex;
+      margin-bottom: 6px;
+    }
+
+    .wa-msg.out {
+      justify-content: flex-end;
+    }
+
+    .wa-bubble {
+      position: relative;
+      max-width: 85%;
+      padding: 6px 7px 7px 8px;
+      border-radius: 7.5px;
+      font-size: 13px;
+      line-height: 1.35;
+      color: #111B21;
+      box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+    }
+
+    .wa-msg.in .wa-bubble {
+      background: #FFFFFF;
+      border-top-left-radius: 0;
+    }
+
+    .wa-msg.in .wa-bubble::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -7px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid #FFFFFF;
+      border-left: 8px solid transparent;
+    }
+
+    .wa-msg.out .wa-bubble {
+      background: #D9FDD3;
+      border-top-right-radius: 0;
+    }
+
+    .wa-msg.out .wa-bubble::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -7px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid #D9FDD3;
+      border-right: 8px solid transparent;
+    }
+
+    .wa-bubble p {
+      margin: 0;
+    }
+
+    .wa-meta {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 3px;
+      margin-top: 2px;
+      font-size: 10.5px;
+      color: rgba(0,0,0,0.45);
+      white-space: nowrap;
+    }
+
+    .wa-check svg {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .wa-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 32px;
+      }
     }
 
     /* ============================================================
@@ -1191,6 +1345,19 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         padding: 6px 10px;
       }
 
+      .materias-box {
+        padding: 14px 16px;
+      }
+
+      .materias-titulo {
+        font-size: 13px;
+      }
+
+      .materia-chip {
+        font-size: 11px;
+        padding: 5px 11px;
+      }
+
       .valor-total-bonus {
         flex-direction: column;
         gap: 4px;
@@ -1209,9 +1376,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         padding: 16px 16px;
       }
 
-      .depoimentos-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 480px) {
@@ -1225,10 +1389,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
       .section {
         padding: 36px 14px;
-      }
-
-      .depo-card::before {
-        display: none;
       }
 
       .plano-card {
@@ -1354,13 +1514,26 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         <span><strong>4.9/5</strong> (560 professores satisfeitos)</span>
       </div>
 
-      <p class="materias-tag">Matérias disponíveis no jogo: Português, Matemática, Inglês, Espanhol, Sociologia, Educação Física, Geografia, História, Ciências...</p>
+      <div class="materias-box">
+        <p class="materias-titulo">📚 Matérias disponíveis no jogo</p>
+        <div class="materias-lista">
+          <span class="materia-chip">Português</span>
+          <span class="materia-chip">Matemática</span>
+          <span class="materia-chip">Inglês</span>
+          <span class="materia-chip">Espanhol</span>
+          <span class="materia-chip">Sociologia</span>
+          <span class="materia-chip">Educação Física</span>
+          <span class="materia-chip">Geografia</span>
+          <span class="materia-chip">História</span>
+          <span class="materia-chip">Ciências</span>
+        </div>
+      </div>
 
       <div class="badges">
-        <span class="badge">Acesso vitalício</span>
-        <span class="badge">Roda no navegador</span>
-        <span class="badge">Sem instalação</span>
-        <span class="badge">Pagamento único</span>
+        <span class="badge">♾️ Acesso vitalício</span>
+        <span class="badge">🌐 Roda no navegador</span>
+        <span class="badge">✅ Sem instalação</span>
+        <span class="badge">💳 Pagamento único</span>
       </div>
 
     </div>
@@ -1539,52 +1712,82 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         <img src="./public/imagens/caca.png" alt="Print de conversa de feedback de professor no WhatsApp elogitando o jogo" class="depo-foto-complemento" width="504" height="926" style="max-width: 500px; width: 100%; height: auto;" loading="lazy">
       </div>
 
-      <div class="depoimentos-grid">
-        <!-- Depoimento 1 -->
-        <div class="depo-wrapper">
-          <div class="depo-card">
-            <div class="depo-header">
-              <div class="depo-avatar" style="background-color: #E53935;">J</div>
-              <div>
-                <h4 class="depo-nome">Juliana</h4>
-                <p class="depo-cargo">Professora · Ensino Fundamental</p>
-              </div>
+      <div class="wa-grid">
+        <!-- Print WhatsApp 1 — Juliana -->
+        <div class="wa-print">
+          <div class="wa-header">
+            <span class="wa-header-back">‹</span>
+            <div class="wa-header-avatar" style="background-color:#E53935;">J</div>
+            <div class="wa-header-info">
+              <div class="wa-header-name">Juliana</div>
+              <div class="wa-header-status">online</div>
             </div>
-            <div class="depo-texto">
-              "Foi demais! Meus alunos não param de pedir para jogar de novo! Apliquei na revisão de português (interpretação de texto) e foi um sucesso. O que mais gostei foi que o jogo é super fácil de usar e roda direto no navegador. Nem precisei instalar nada nos celulares dos alunos. As perguntas aparecem rápido, o placar deixa tudo mais emocionante e o melhor: aprendem brincando!"
+            <div class="wa-header-icons">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4Z"/></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15.3 15.3 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1L6.6 10.8Z"/></svg>
+              <span style="font-size:17px;letter-spacing:1px;">⋮</span>
             </div>
+          </div>
+          <div class="wa-body">
+            <span class="wa-date-chip">HOJE</span>
+
+            <div class="wa-msg in"><div class="wa-bubble"><p>Gente, funcionou demais! 😍</p><span class="wa-meta">08:12</span></div></div>
+            <div class="wa-msg in"><div class="wa-bubble"><p>Apliquei na revisão de português (interpretação de texto) e os alunos não paravam de pedir pra jogar de novo</p><span class="wa-meta">08:14</span></div></div>
+            <div class="wa-msg in"><div class="wa-bubble"><p>Rodou liso, sem travar, e nem precisei instalar nada no celular deles</p><span class="wa-meta">08:15</span></div></div>
+            <div class="wa-msg out"><div class="wa-bubble"><p>Que alegria receber isso, Ju! 🙌 Fico muito feliz que tenha funcionado tão bem com a turma!</p><span class="wa-meta">08:19 <span class="wa-check"><svg width="15" height="11" viewBox="0 0 18 13"><path fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M1 7l3.5 4L12 3"/><path fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M6 7l3.5 4L17 3"/></svg></span></span></div></div>
+            <div class="wa-msg in"><div class="wa-bubble"><p>Com certeza vou usar em todas as revisões daqui pra frente 🙏</p><span class="wa-meta">08:21</span></div></div>
           </div>
         </div>
 
-        <!-- Depoimento 2 -->
-        <div class="depo-wrapper">
-          <div class="depo-card">
-            <div class="depo-header">
-              <div class="depo-avatar" style="background-color: #2E7D32;">R</div>
-              <div>
-                <h4 class="depo-nome">Rafael</h4>
-                <p class="depo-cargo">Professor · Ensino Fundamental e Médio</p>
-              </div>
+        <!-- Print WhatsApp 2 — Rafael -->
+        <div class="wa-print">
+          <div class="wa-header">
+            <span class="wa-header-back">‹</span>
+            <div class="wa-header-avatar" style="background-color:#2E7D32;">R</div>
+            <div class="wa-header-info">
+              <div class="wa-header-name">Rafael</div>
+              <div class="wa-header-status">online</div>
             </div>
-            <div class="depo-texto">
-              "A turma simplesmente amou o jogo! Usei na revisão de matemática e fez toda a diferença. Eles ficaram super envolvidos, todos participaram e até os mais tímidos entraram no jogo. O tempo de resposta das perguntas é ótimo e o placar deixa tudo mais empolgante. No final, fizemos uma reflexão sobre os erros e acertos. Aprenderam muito brincando!"
+            <div class="wa-header-icons">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4Z"/></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15.3 15.3 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1L6.6 10.8Z"/></svg>
+              <span style="font-size:17px;letter-spacing:1px;">⋮</span>
             </div>
+          </div>
+          <div class="wa-body">
+            <span class="wa-date-chip">HOJE</span>
+
+            <div class="wa-msg in"><div class="wa-bubble"><p>Cara, a turma AMOU o jogo 🔥</p><span class="wa-meta">14:03</span></div></div>
+            <div class="wa-msg in"><div class="wa-bubble"><p>Usei na revisão de matemática, todo mundo participou, até os mais tímidos entraram</p><span class="wa-meta">14:05</span></div></div>
+            <div class="wa-msg in"><div class="wa-bubble"><p>O placar deixa tudo mais emocionante kkkk</p><span class="wa-meta">14:06</span></div></div>
+            <div class="wa-msg out"><div class="wa-bubble"><p>Que demais, Rafael! Isso é exatamente o objetivo 😄</p><span class="wa-meta">14:09 <span class="wa-check"><svg width="15" height="11" viewBox="0 0 18 13"><path fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M1 7l3.5 4L12 3"/><path fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M6 7l3.5 4L17 3"/></svg></span></span></div></div>
+            <div class="wa-msg in"><div class="wa-bubble"><p>Vale muito o investimento, recomendo demais pra outros professores</p><span class="wa-meta">14:11</span></div></div>
           </div>
         </div>
 
-        <!-- Depoimento 3 -->
-        <div class="depo-wrapper">
-          <div class="depo-card">
-            <div class="depo-header">
-              <div class="depo-avatar" style="background-color: #1565C0;">H</div>
-              <div>
-                <h4 class="depo-nome">Henrique</h4>
-                <p class="depo-cargo">Professor · Ciências e História (7º ano)</p>
-              </div>
+        <!-- Print WhatsApp 3 — Henrique -->
+        <div class="wa-print">
+          <div class="wa-header">
+            <span class="wa-header-back">‹</span>
+            <div class="wa-header-avatar" style="background-color:#1565C0;">H</div>
+            <div class="wa-header-info">
+              <div class="wa-header-name">Henrique</div>
+              <div class="wa-header-status">visto por último hoje às 20:41</div>
             </div>
-            <div class="depo-texto">
-              "Foi excelente! A galera amou demais! Usei na revisão de ciências e história com minhas turmas do 7º ano. Eles ficaram super empolgados e pediram até para jogar de novo. O jogo é muito dinâmico, as perguntas são boas e dá para adaptar com qualquer conteúdo. E os bônus são sensacionais! Já imprimi o cartaz de regras e usei a ficha de avaliação. Me ajudou demais."
+            <div class="wa-header-icons">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4Z"/></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15.3 15.3 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1L6.6 10.8Z"/></svg>
+              <span style="font-size:17px;letter-spacing:1px;">⋮</span>
             </div>
+          </div>
+          <div class="wa-body">
+            <span class="wa-date-chip">HOJE</span>
+
+            <div class="wa-msg in"><div class="wa-bubble"><p>Boa noite! Só passando pra agradecer 🙏</p><span class="wa-meta">20:28</span></div></div>
+            <div class="wa-msg in"><div class="wa-bubble"><p>Usei o jogo com o 7º ano em ciências e história, e foi excelente</p><span class="wa-meta">20:30</span></div></div>
+            <div class="wa-msg in"><div class="wa-bubble"><p>Já imprimi o cartaz de regras e a ficha de avaliação, me ajudou demais</p><span class="wa-meta">20:32</span></div></div>
+            <div class="wa-msg out"><div class="wa-bubble"><p>Fico muito feliz, Henrique! Os bônus são pra isso mesmo 🎯</p><span class="wa-meta">20:38 <span class="wa-check"><svg width="15" height="11" viewBox="0 0 18 13"><path fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M1 7l3.5 4L12 3"/><path fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M6 7l3.5 4L17 3"/></svg></span></span></div></div>
+            <div class="wa-msg in"><div class="wa-bubble"><p>Com certeza vou comentar pros colegas aqui da escola 👏</p><span class="wa-meta">20:41</span></div></div>
           </div>
         </div>
       </div>
